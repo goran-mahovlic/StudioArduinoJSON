@@ -1,0 +1,538 @@
+{
+  "objID": "6666cd76-f969-5646-9e7b-e39d750cc7d9",
+  "settings": {
+    "objID": "e007d988-9fba-797d-72e9-efc33ca6d05c",
+    "general": {
+      "objID": "fd434352-2277-c4a8-e87e-e96cfcbf2305",
+      "projectVersion": "v3",
+      "projectType": "dashboard",
+      "extensions": [],
+      "imports": [],
+      "colorFormat": "RGB",
+      "resourceFiles": []
+    },
+    "build": {
+      "objID": "72794a43-a0fc-13c2-7eb5-67dd952141a4",
+      "configurations": [
+        {
+          "objID": "bba0546c-06b8-604d-c43e-ecf1963e7492",
+          "name": "Default"
+        }
+      ],
+      "files": [],
+      "lvglInclude": "lvgl/lvgl.h"
+    }
+  },
+  "variables": {
+    "objID": "c6c71e16-53e1-217f-d03b-cef56c6b037a",
+    "globalVariables": [
+      {
+        "objID": "1eebf83f-73f0-4b7a-fca2-d3d652d7df64",
+        "name": "Arduino",
+        "type": "object:SerialConnection",
+        "defaultValue": "null",
+        "persistent": true,
+        "native": false
+      },
+      {
+        "objID": "8d8c96de-ffbc-448e-d5e1-b59709e058e2",
+        "name": "serial_stream",
+        "type": "stream",
+        "defaultValue": "null",
+        "persistent": false,
+        "native": false
+      }
+    ],
+    "structures": [],
+    "enums": []
+  },
+  "actions": [],
+  "userPages": [
+    {
+      "objID": "f7f15531-2f0d-6247-72af-17ad3967f8e0",
+      "components": [
+        {
+          "objID": "55f993c7-6c52-419d-aa58-cad3a1c307fc",
+          "type": "SerialConnect",
+          "left": 190,
+          "top": -92,
+          "width": 129,
+          "height": 54,
+          "customInputs": [],
+          "customOutputs": [],
+          "connection": "Arduino"
+        },
+        {
+          "objID": "aadf755f-94f5-46c6-8fcf-62f4436bde09",
+          "type": "JSONParse",
+          "left": -223,
+          "top": 159,
+          "width": 99,
+          "height": 70,
+          "customInputs": [
+            {
+              "objID": "5cb15318-ba22-475b-f762-63339aeaf496",
+              "name": "match",
+              "type": "struct:$RegExpResult"
+            }
+          ],
+          "customOutputs": [
+            {
+              "objID": "7bb2f01c-ca5f-487c-b13d-6d8321b807a8",
+              "name": "result",
+              "type": "json"
+            }
+          ],
+          "catchError": true,
+          "value": "match.texts[1]"
+        },
+        {
+          "objID": "60766a50-525a-4548-ab1c-8dd188f851fc",
+          "type": "WatchVariableActionComponent",
+          "left": -615,
+          "top": -108,
+          "width": 191,
+          "height": 54,
+          "customInputs": [],
+          "customOutputs": [],
+          "variable": "Arduino.isConnected"
+        },
+        {
+          "objID": "e5ab36bd-44fe-474a-ef13-9c54132e9f82",
+          "type": "LineChartWidget",
+          "left": 5,
+          "top": 56,
+          "width": 895,
+          "height": 512,
+          "customInputs": [
+            {
+              "objID": "8cf17a68-1bc3-4109-9428-37fd714461bf",
+              "name": "value",
+              "type": "json"
+            }
+          ],
+          "customOutputs": [],
+          "catchError": true,
+          "style": {
+            "objID": "750fdc24-734a-4829-9f19-80b52cf1f8f6",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "xValue": "Date.now()",
+          "lines": [
+            {
+              "objID": "93760651-680e-4e1b-c6be-88234bf15858",
+              "label": "\"A0\"",
+              "color": "#D76D77",
+              "value": "value.A0",
+              "visible": "true"
+            },
+            {
+              "objID": "a8a23c53-0699-453c-fcbe-a5400d8cc71c",
+              "label": "\"A1\"",
+              "color": "#77A88D",
+              "value": "value.A1",
+              "visible": "true"
+            },
+            {
+              "objID": "a3b965ec-7acd-409d-9c5e-2b077259851c",
+              "label": "\"A2\"",
+              "color": "#6D83B5",
+              "value": "value.A2",
+              "visible": "true"
+            },
+            {
+              "objID": "02a424e1-3bd8-4eba-93f4-f88b85764161",
+              "label": "\"A3\"",
+              "color": "#D4B94D",
+              "value": "value.A3",
+              "visible": "true"
+            },
+            {
+              "objID": "a8b9386b-b4c3-4c09-e566-e14c73302cd2",
+              "label": "\"A4\"",
+              "color": "#9A7FAE",
+              "value": "value.A4",
+              "visible": "true"
+            },
+            {
+              "objID": "439c6013-5319-4399-c4bd-53c65f6a1874",
+              "label": "\"A5\"",
+              "color": "#D19A66",
+              "value": "value.A5",
+              "visible": "true"
+            }
+          ],
+          "title": "",
+          "displayModebar": "hover",
+          "showLegend": true,
+          "showXAxis": true,
+          "showYAxis": true,
+          "showGrid": true,
+          "showZeroLines": true,
+          "xAxisRangeOption": "floating",
+          "xAxisRangeFrom": 0,
+          "xAxisRangeTo": 10,
+          "yAxisRangeOption": "floating",
+          "yAxisRangeFrom": 0,
+          "yAxisRangeTo": 10,
+          "maxPoints": "40",
+          "margin": {
+            "objID": "010c0c6b-a5b3-49fa-89b5-4b45d2c7e472",
+            "top": 50,
+            "right": 0,
+            "bottom": 50,
+            "left": 50
+          },
+          "marker": "",
+          "markerStyle": {
+            "objID": "41774fe4-52e2-40b7-c00f-da3a502ed6c4",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          }
+        },
+        {
+          "objID": "730bf5ad-1b3b-419a-9224-c799be8e0ba1",
+          "type": "ButtonDashboardWidget",
+          "left": 12,
+          "top": 13,
+          "width": 103,
+          "height": 32,
+          "customInputs": [],
+          "customOutputs": [],
+          "data": "\"Start\"",
+          "style": {
+            "objID": "5a45004a-5218-4645-e7d8-a20e04639426",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [
+            {
+              "objID": "90f42dad-5784-471e-fbc3-c4fd1257506e",
+              "eventName": "CLICKED",
+              "handlerType": "flow"
+            }
+          ],
+          "enabled": "!Arduino.isConnected",
+          "disabledStyle": {
+            "objID": "758aedc5-f589-42c6-824d-8d068ce4825d",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          }
+        },
+        {
+          "objID": "2e3b2459-4c6f-4cfb-c3bc-76f96bbaecd4",
+          "type": "ButtonDashboardWidget",
+          "left": 169,
+          "top": 13,
+          "width": 103,
+          "height": 32,
+          "customInputs": [],
+          "customOutputs": [],
+          "data": "\"Stop\"",
+          "style": {
+            "objID": "02d999ad-9901-4955-92f1-cf2c80d00ec2",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [
+            {
+              "objID": "7ead6c4d-0ed8-4a52-8dda-10285e7f5e08",
+              "eventName": "CLICKED",
+              "handlerType": "flow"
+            }
+          ],
+          "enabled": "Arduino.isConnected",
+          "disabledStyle": {
+            "objID": "74873c41-d3fe-4efb-84e5-e07adaafdd10",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          }
+        },
+        {
+          "objID": "c84c904d-8989-47b5-d091-56dfe4d6d440",
+          "type": "SerialRead",
+          "left": -615,
+          "top": 4,
+          "width": 111,
+          "height": 52,
+          "customInputs": [],
+          "customOutputs": [],
+          "connection": "Arduino"
+        },
+        {
+          "objID": "b38be8c1-70fe-4bfd-bee2-45f8e10756dc",
+          "type": "SerialDisconnect",
+          "left": 371,
+          "top": -92,
+          "width": 146,
+          "height": 54,
+          "customInputs": [],
+          "customOutputs": [],
+          "connection": "Arduino"
+        },
+        {
+          "objID": "4bca7db0-a3dc-4512-e36b-27eb7dac7992",
+          "type": "IsTrueActionComponent",
+          "left": -396,
+          "top": -108,
+          "width": 87,
+          "height": 70,
+          "customInputs": [
+            {
+              "objID": "57b92fdd-6997-4a7e-cfd9-c61562403005",
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "customOutputs": [],
+          "value": "value"
+        },
+        {
+          "objID": "31499548-9f5c-45f8-ffa5-564029cd4a01",
+          "type": "Regexp",
+          "left": -433,
+          "top": 159,
+          "width": 161,
+          "height": 70,
+          "customInputs": [],
+          "customOutputs": [],
+          "catchError": false,
+          "pattern": "\"(.*)\\r\\n\"",
+          "text": "serial_stream",
+          "global": "true",
+          "caseInsensitive": "true"
+        },
+        {
+          "objID": "d2e4fa53-64b9-4c00-8c05-308c9985eb73",
+          "type": "SetVariableActionComponent",
+          "left": -479,
+          "top": 4,
+          "width": 233,
+          "height": 55,
+          "customInputs": [
+            {
+              "objID": "263363a3-7b15-4931-865f-a827fdadbb04",
+              "name": "stream",
+              "type": "stream"
+            }
+          ],
+          "customOutputs": [],
+          "entries": [
+            {
+              "objID": "03bf2e2b-c045-4dc3-84b4-af660e941749",
+              "variable": "serial_stream",
+              "value": "stream"
+            }
+          ]
+        },
+        {
+          "objID": "bfd1983e-9b42-4436-eb84-367c8c40502a",
+          "type": "LogActionComponent",
+          "left": 973,
+          "top": 312,
+          "width": 87,
+          "height": 52,
+          "customInputs": [
+            {
+              "objID": "445a6d32-6c4a-4ef3-862c-862bb6f21769",
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "customOutputs": [],
+          "value": "value"
+        },
+        {
+          "objID": "3f9cb3ed-2acd-4525-cc73-4014d8018788",
+          "type": "TextDashboardWidget",
+          "left": 5,
+          "top": 568,
+          "width": 895,
+          "height": 32,
+          "customInputs": [
+            {
+              "objID": "ae20eb09-53c1-4559-cb6c-f8da22df2144",
+              "name": "serialData",
+              "type": "string"
+            }
+          ],
+          "customOutputs": [],
+          "data": "serialData",
+          "style": {
+            "objID": "b24f34d7-dc51-43a1-e7b0-c9be30e613b1",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": []
+        },
+        {
+          "objID": "5a36c662-3b5d-4f3f-af54-a9c11e789de4",
+          "type": "JSONStringify",
+          "left": -195,
+          "top": 447,
+          "width": 142,
+          "height": 54,
+          "customInputs": [
+            {
+              "objID": "e3e93960-a8c8-4c3b-9a19-b3e5521bff2f",
+              "name": "dataIn",
+              "type": "json"
+            }
+          ],
+          "customOutputs": [],
+          "value": "dataIn",
+          "indentation": "2"
+        }
+      ],
+      "connectionLines": [
+        {
+          "objID": "19b4ced1-2e33-4948-de81-8eaaaf583c1f",
+          "source": "aadf755f-94f5-46c6-8fcf-62f4436bde09",
+          "output": "result",
+          "target": "e5ab36bd-44fe-474a-ef13-9c54132e9f82",
+          "input": "value"
+        },
+        {
+          "objID": "cd8c4984-7aa1-4093-e72f-440226d5d13e",
+          "source": "60766a50-525a-4548-ab1c-8dd188f851fc",
+          "output": "variable",
+          "target": "4bca7db0-a3dc-4512-e36b-27eb7dac7992",
+          "input": "value"
+        },
+        {
+          "objID": "6e53120c-b0e6-457c-fc1f-d615d649b507",
+          "source": "2e3b2459-4c6f-4cfb-c3bc-76f96bbaecd4",
+          "output": "CLICKED",
+          "target": "b38be8c1-70fe-4bfd-bee2-45f8e10756dc",
+          "input": "@seqin"
+        },
+        {
+          "objID": "bf468429-107f-4daa-bcad-34e0e145e045",
+          "source": "c84c904d-8989-47b5-d091-56dfe4d6d440",
+          "output": "data",
+          "target": "d2e4fa53-64b9-4c00-8c05-308c9985eb73",
+          "input": "stream"
+        },
+        {
+          "objID": "a0930220-bef4-4f3b-c641-85ad0df07b18",
+          "source": "730bf5ad-1b3b-419a-9224-c799be8e0ba1",
+          "output": "CLICKED",
+          "target": "55f993c7-6c52-419d-aa58-cad3a1c307fc",
+          "input": "@seqin"
+        },
+        {
+          "objID": "65968332-c9b7-400b-f0dd-7be2d67504ec",
+          "source": "4bca7db0-a3dc-4512-e36b-27eb7dac7992",
+          "output": "True",
+          "target": "c84c904d-8989-47b5-d091-56dfe4d6d440",
+          "input": "@seqin"
+        },
+        {
+          "objID": "8b9c58ad-4790-4e74-ac36-446953f3d4f8",
+          "source": "d2e4fa53-64b9-4c00-8c05-308c9985eb73",
+          "output": "@seqout",
+          "target": "31499548-9f5c-45f8-ffa5-564029cd4a01",
+          "input": "@seqin"
+        },
+        {
+          "objID": "0de7b734-a88a-4262-9ae4-1cb74c8ca4d6",
+          "source": "31499548-9f5c-45f8-ffa5-564029cd4a01",
+          "output": "match",
+          "target": "aadf755f-94f5-46c6-8fcf-62f4436bde09",
+          "input": "match"
+        },
+        {
+          "objID": "9d334e10-ea8f-4f76-a319-68e9793eb542",
+          "source": "aadf755f-94f5-46c6-8fcf-62f4436bde09",
+          "output": "@error",
+          "target": "31499548-9f5c-45f8-ffa5-564029cd4a01",
+          "input": "next"
+        },
+        {
+          "objID": "f465035b-ef51-473c-9bad-627d9f6ecb52",
+          "source": "aadf755f-94f5-46c6-8fcf-62f4436bde09",
+          "output": "@seqout",
+          "target": "31499548-9f5c-45f8-ffa5-564029cd4a01",
+          "input": "next"
+        },
+        {
+          "objID": "965de4d1-a009-4e40-e524-9a93af3e0fcf",
+          "source": "e5ab36bd-44fe-474a-ef13-9c54132e9f82",
+          "output": "@error",
+          "target": "bfd1983e-9b42-4436-eb84-367c8c40502a",
+          "input": "value"
+        },
+        {
+          "objID": "247f073b-6233-468d-c324-2a0896f7b040",
+          "source": "aadf755f-94f5-46c6-8fcf-62f4436bde09",
+          "output": "result",
+          "target": "5a36c662-3b5d-4f3f-af54-a9c11e789de4",
+          "input": "dataIn"
+        },
+        {
+          "objID": "4f08c986-8228-4ad8-d421-aad82910f6c8",
+          "source": "5a36c662-3b5d-4f3f-af54-a9c11e789de4",
+          "output": "result",
+          "target": "3f9cb3ed-2acd-4525-cc73-4014d8018788",
+          "input": "serialData"
+        }
+      ],
+      "localVariables": [],
+      "name": "Main",
+      "style": "page",
+      "left": 0,
+      "top": 0,
+      "width": 900,
+      "height": 600,
+      "lvglLocalStyles": {
+        "objID": "e85dbd5d-8325-1629-003b-86fd654ae635"
+      }
+    }
+  ],
+  "userWidgets": [],
+  "styles": [
+    {
+      "objID": "04157789-da53-2f4a-e658-4ca10aa5fbef",
+      "name": "default",
+      "conditionalStyles": [],
+      "childStyles": []
+    },
+    {
+      "objID": "c49c1adf-a610-28c0-027c-0e452dadb32b",
+      "name": "page",
+      "conditionalStyles": [],
+      "childStyles": [],
+      "backgroundColor": "page_color",
+      "css": "\n"
+    }
+  ],
+  "bitmaps": [],
+  "colors": [
+    {
+      "objID": "e6c28e5a-fe7f-09ed-9223-17769968ebea",
+      "name": "page_color"
+    }
+  ],
+  "themes": [
+    {
+      "objID": "a7943c4e-90c6-cf58-2c43-9f24cf4b097c",
+      "name": "default",
+      "colors": [
+        "#f0f0f0"
+      ]
+    }
+  ]
+}
